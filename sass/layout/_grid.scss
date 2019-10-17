@@ -1,0 +1,102 @@
+.row {
+    max-width: $grid-width; //max means if we have enough available space then it will have that width specified but if not (smaller than that) then it will have 100% of the available space
+    // background-color: #eee; //nice grey
+     margin: 0 auto; //center block element inside another block element
+
+    //.row:last-child -- only select last child
+    //.row:not
+    &:not(:last-child) { //everything except last child
+        // margin-bottom: $gutter-vertical;
+        margin-bottom: 4rem;
+    }
+
+    @include clearfix;
+
+    //* = any,  ^ = start with,  $ = end with
+    [class^="col-"] {
+        // background-color: orange;
+        float: left;
+
+        &:not(:last-child) {
+            margin-right: $gutter-horizontal;
+        }
+
+    }
+
+    .col-1-of-2 {
+        width: calc( (100% - #{$gutter-horizontal}) / 2 );
+    }
+
+    .col-1-of-3 {
+        width: calc( (100% - 2 * #{$gutter-horizontal}) / 3 );
+    }
+
+    .col-2-of-3 {
+        width: calc( 2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal} );
+    }
+
+    .col-1-of-4 {
+        width: calc( (100% - 3 * #{$gutter-horizontal}) / 4 );
+    }
+
+    .col-2-of-4 {
+        width: calc( 2 * ((100% - 3 * #{$gutter-horizontal}) / 4 ) + #{$gutter-horizontal} );
+    }
+
+    .col-3-of-4 {
+        width: calc( 3 * ((100% - 3 * #{$gutter-horizontal}) / 4 ) + 2 * #{$gutter-horizontal} );
+    }
+
+}
+
+.expand {
+    max-width: 100% !important;
+    // width: 100% !important;
+    height: 100%;
+
+    &:not(:last-child) { //everything except last child
+        // margin-bottom: $gutter-vertical;
+    }
+
+    @include clearfix;
+
+
+    // My added grids --- begins here
+
+    .col-0-of-3 {
+        width: calc( (100% - 2 * #{$gutter-horizontal}) / 3 + #{$gutter-horizontal} );
+        //margin-right: 0 !important;
+      //  background-color: lightblue;
+
+       //background-color: aquamarine;
+      // background-image: linear-gradient(90deg, #4c5e6a 0%, #37444c 100%);
+      background-image: url(../img/spiral1.jpg);
+     //background-image: url(../img/bg4.jpg);
+     background-repeat: no-repeat;
+     background-size: cover;
+        float: left;
+        // position: fixed;
+        // margin-right: $gutter-horizontal;
+        //height: 253.5rem;
+        // height: 120%;
+        overflow: scroll;
+        max-height: 100%;
+        padding-bottom: 6rem;
+        // overflow-y: scroll;
+    //    overflow-x: hidden;
+    }
+
+    .col-3-of-3 {
+        width: calc( 2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal} );
+        // background-color: #9b1919;
+        float: left;
+        // position: fixed;
+        // margin-left: calc( (100% - 2 * #{$gutter-horizontal}) / 3 + #{$gutter-horizontal} );
+        overflow: scroll;
+        max-height: 100%;
+    }
+
+
+
+    // My added grids --- ends here
+}
